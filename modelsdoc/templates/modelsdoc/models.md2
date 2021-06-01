@@ -1,9 +1,9 @@
 {% load modelsdoc_tags %}{% emptylineless %}{% autoescape off %}
-|Model Class名{% for label, attr in display_fields %}|{{ label }}{% endfor %}|
-|---{% for label, attr in display_fields %}|---{% endfor %}|
+|Model Class名|Model名{% for label, attr in display_fields %}|{{ label }}{% endfor %}|
+|---|---{% for label, attr in display_fields %}|---{% endfor %}|
 {% for model in models %}
 {% for field in model.fields %}
-|{{ model.class_fullname }}{% for label, attr in display_fields %}|{{ field|get_attr:attr }} {% endfor %}|
+|{{ model.class_fullname }}|{{ model.name }}{% for label, attr in display_fields %}|{{ field|get_attr:attr }} {% endfor %}|
 {% endfor %}
 {% endfor %}
 {% endautoescape %}
